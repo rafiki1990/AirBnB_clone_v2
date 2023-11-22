@@ -7,6 +7,8 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy import DateTime
 from models import storage
 
+Base = declarative_base()
+
 class BaseModel:
     """A base class for all hbnb models"""
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
