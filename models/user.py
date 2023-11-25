@@ -14,12 +14,11 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
 
-    # Define the relationship with the Place class
     places = relationship("Place", back_populates="user", cascade="all, delete-orphan")
 
-# Import Place after defining the User class to avoid circular import
-from models.place import Place
-
-# Add a foreign key constraint to the Place class
-Place.user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
-Place.user = relationship("User", back_populates="places")
+# Add or replace the class attributes
+User.__tablename__ = "users"
+User.email = Column(String(128), nullable=False)
+User.password = Column(String(128), nullable=False)
+User.first_name = Column(String(128), nullable=True)
+User.last_name = Column(String(128), nullable=True)
