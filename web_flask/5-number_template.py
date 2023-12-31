@@ -2,7 +2,7 @@
 """Starts a flask web application.
 """
 
-from flask import Flask, request
+from flask import Flask, request,render_template
 app = Flask(__name__)
 
 # Define the route from the root URL '/'
