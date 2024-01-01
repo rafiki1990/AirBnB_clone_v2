@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#i/usr/bin/python3
 """This module defines a class to manage file storage for hbnb clone"""
 import json
 from models.base_model import BaseModel
@@ -10,7 +10,7 @@ from models.amenity import Amenity
 from models.review import Review
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-        "Place": Place, "Review": Review, "State": State, "User": User}
+           "Place": Place, "Review": Review, "State": State, "User": User}
 
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
@@ -75,7 +75,3 @@ class FileStorage:
         if cls:
             return len([obj for obj in self.__objects.values() if isinstance(obj, cls)])
         return len(self.__objects)
-
-   def close(self):
-	"""Call the reload method."""
-	self.reload()
