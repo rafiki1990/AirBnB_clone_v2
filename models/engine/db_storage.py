@@ -147,10 +147,5 @@ class MyDBStorage:
         self.__my_session = scoped_session(sec)
 
     def close(self):
-        """
-        Remove the session and close the connection to the database.
-
-        This method removes the current session and closes the connection
-        to the database, ensuring proper cleanup and resource management.
-        """
-        self.__my_session.close()
+        """Close the working SQLAlchemy session."""
+        self.__session.close()
