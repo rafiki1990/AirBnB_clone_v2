@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<HTML lang="en">
+        <HEAD>
+                <TITLE>HBNB<TITLE>
+        </HEAD>
+        <BODY>
+	{% if state is mapping %}
+		<H1>States</H1>
+		<UL>
+		{% for s in state.value()|sort(attribute="name") %}
+			<L1>{{ s.id }}: <B>{{ s.name }}</B></L1>
+		{% endfor %}
+		</UL>
+	{% elif state is defined %}
+		<H1>State: {{ state.name }}</H1>
+                <H3>Cities</H3>
+                <UL>
+                {% for city in state.cities|sort(attribute="name") %}
+                        <L1>{{ city.id }}: <B>{{ city.name }}</B></L1>
+                   {% endfor %}
+                </UL>
+	{% endfor %}
+		<H1>Not found!</H1>
+        {% endif %}
+	</BODY>
+</HTML>
